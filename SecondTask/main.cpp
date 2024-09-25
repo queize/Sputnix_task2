@@ -54,6 +54,7 @@ ListNode* mergeKLists(std::vector<ListNode*>& lists) {
 
 int main()
 {
+    
     ListNode *lists1 = new ListNode(1 , new ListNode(4, new ListNode(10)));
     ListNode *lists2 = new ListNode(2 , new ListNode(3, new ListNode(5)));
     ListNode *lists3 = new ListNode(-10, new ListNode(0, new ListNode(3, new ListNode(11))));
