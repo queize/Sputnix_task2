@@ -44,8 +44,17 @@ public:
         } 
         delete [] data; 
     } 
-  
-    // ADD YOUR CODE HERE 
+  /*
+    Для того, чтобы код заработал нужно добавить оператор присваивания
+  */
+    Matrix<T> &operator=(const Matrix<T> &A) {
+        for (size_t i = 0; i != A.GetRows(); ++i) { 
+            for (size_t j = 0; j != A.GetColumns(); ++j) { 
+                (*this)[i][j] = A[i][j];
+            }    
+        }
+        return *this;     
+    }
 }; 
   
 template <typename T> 
