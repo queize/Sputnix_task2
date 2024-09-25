@@ -54,13 +54,49 @@ ListNode* mergeKLists(std::vector<ListNode*>& lists) {
 
 int main()
 {
-    
-    ListNode *lists1 = new ListNode(1 , new ListNode(4, new ListNode(10)));
-    ListNode *lists2 = new ListNode(2 , new ListNode(3, new ListNode(5)));
-    ListNode *lists3 = new ListNode(-10, new ListNode(0, new ListNode(3, new ListNode(11))));
-    ListNode *lists4 = new ListNode(-21, new ListNode(21));
+    {
+        /*
+            Тест 1
+            Входные данные: [[10]]
+            Выходные данные: [10]
+        */
+        ListNode *lists1 = new ListNode(10);
+        std::vector<ListNode *> lists = {lists1};
+        ListNode *sLists = mergeKLists(lists);
+        std::cout << sLists << '\n';
+    }
+    {
+        /*
+            Тест 2
+            Входные данные: [
+                [1--> 4-->10],
+                [2--> 3-->5],
+            ]
+            Выходные данные: [1--> 2--> 3--> 4--> 5-->10]
+        */
+        ListNode *lists1 = new ListNode(1 , new ListNode(4, new ListNode(10)));
+        ListNode *lists2 = new ListNode(2 , new ListNode(3, new ListNode(5)));
+        std::vector<ListNode *> lists = {lists1, lists2};
+        ListNode *sLists = mergeKLists(lists);
+        std::cout << sLists << '\n';    
+    }
+    {
+        /*
+            Тест 3
+            Входные данные: [
+                [(-10)--> 4--> 18-->21],
+                [0--> 7-->8],
+                [(-10)--> (-5)--> (-4)-->0]
+            ]
+            Выходные данные: [(-10)--> (-10)--> (-5)--> (-4)--> 0--> 0--> 4--> 7--> 8--> 18-->21]
+        */
+        ListNode *lists1 = new ListNode(-10, new ListNode(4, new ListNode(18, new ListNode(21))));
+        ListNode *lists2 = new ListNode(0, new ListNode(7, new ListNode(8)));
+        ListNode *lists3 = new ListNode(-10, new ListNode(-5, new ListNode(-4, new ListNode(0))));
 
-    std::vector<ListNode *> lists = {lists1, lists2, lists3, lists4};
-    ListNode *sLists = mergeKLists(lists);
-    std::cout << sLists;
+        std::vector<ListNode *> lists = {lists1, lists2, lists3};
+        ListNode *sLists = mergeKLists(lists);
+        std::cout << sLists << '\n';
+    }
+
 }
